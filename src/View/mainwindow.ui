@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>781</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab_maze">
+     <attribute name="title">
+      <string>Лабиринт</string>
+     </attribute>
+     <widget class="QPushButton" name="load_maze_button">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>0</y>
+        <width>121</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Загрузить</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="maze_generation_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>40</y>
+        <width>251</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Генерация лабиринта</string>
+      </property>
+      <widget class="QLabel" name="number_lines_maze_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>25</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Количество строк</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="number_lines_maze_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>23</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>3</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="number_columns_maze_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>48</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>3</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="number_columns_maze_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Количество столбцов</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="maze_generation_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>75</y>
+         <width>231</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Сгенерировать лабиринт</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="save_maze_button">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>0</y>
+        <width>121</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Сохранить</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="solve_maze_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>160</y>
+        <width>251</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Решение лабиринта</string>
+      </property>
+      <widget class="QLabel" name="start_x_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>25</y>
+         <width>58</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start x</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="start_y_label">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>25</y>
+         <width>58</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start y</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="start_x_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>23</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="start_y_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>23</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="end_x_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>52</y>
+         <width>58</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>End x</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="end_y_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>50</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="end_y_label">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>52</y>
+         <width>58</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>End y</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="end_x_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>50</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="solve_maze_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>231</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Решить лабиринт</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="q_learning_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>290</y>
+        <width>251</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Q-обучение</string>
+      </property>
+      <widget class="QSpinBox" name="q_end_y_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>20</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="q_end_x_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>22</y>
+         <width>58</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>End x</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="q_end_x_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>20</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="q_end_y_label">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>22</y>
+         <width>58</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>End y</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="end_maze_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>231</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Определить конец лабиринта</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="count_episode_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Количество эпизодов</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="count_episode_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>87</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>999999999</number>
+       </property>
+       <property name="singleStep">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>1000</number>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="train_agent_button">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>231</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Обучить агента</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="q_start_y_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>150</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="q_start_y_label">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>152</y>
+         <width>58</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start y</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="q_start_x_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>152</y>
+         <width>58</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start x</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="q_start_x_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>150</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="q_solve_maze_button">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>174</y>
+         <width>231</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Найти путь агента</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_cave">
+     <attribute name="title">
+      <string>Пещера</string>
+     </attribute>
+     <widget class="QPushButton" name="load_cave_button">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>0</y>
+        <width>121</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Загрузить</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="save_cave_button">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>0</y>
+        <width>121</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Сохранить</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="cave_generation_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>30</y>
+        <width>251</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Генерация пещеры</string>
+      </property>
+      <widget class="QLabel" name="number_columns_cave_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Количество столбцов</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="cave_generation_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>231</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Сгенерировать пещеру</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="number_lines_cave_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>25</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Количество строк</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="number_lines_cave_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>23</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>3</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="number_columns_cave_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>48</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>3</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="initialization_chance_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>75</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Шанс инициализации</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="initialization_chance_doubleSpinBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>73</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>1.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.010000000000000</double>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="change_cave_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>180</y>
+        <width>251</width>
+        <height>241</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Изменение пещеры</string>
+      </property>
+      <widget class="QLabel" name="birth_limit_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>25</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Лимит рождения</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="birth_limit_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>23</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>7</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="death_limit_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>52</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Лимит смерти</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="death_limit_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>50</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>7</number>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="save_limits_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>231</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Подтвердить лимиты</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="change_cave_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>231</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Следующая итерация</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="time_iterations_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>172</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Время итерации (мс)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="number_iterations_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>145</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Количество итераций</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="number_iterations_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>143</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>25</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="time_iterations_spinBox">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>170</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>15000</number>
+       </property>
+       <property name="singleStep">
+        <number>1000</number>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="rendering_cave_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>200</y>
+         <width>231</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Рендеринг</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
